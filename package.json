@@ -1,0 +1,43 @@
+{
+  "name": "moe-dashboard",
+  "version": "1.0.0",
+  "description": "لوحة تحكم وزارة التعليم - إدارة الأداء الوظيفي | Ministry of Education Dashboard - Performance Management",
+  "author": "Ministry of Education",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Build script here'",
+    "test": "echo 'Test script here'",
+    "deploy": "echo 'Deploy script here'"
+  },
+  "keywords": [
+    "dashboard",
+    "education",
+    "performance",
+    "management",
+    "moe",
+    "wazarah",
+    "arabic",
+    "rtl"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ministry-of-education/dashboard"
+  },
+  "bugs": {
+    "url": "https://github.com/ministry-of-education/dashboard/issues"
+  },
+  "homepage": "https://github.com/ministry-of-education/dashboard#readme",
+  "dependencies": {
+    "chart.js": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/chart.js": "^2.9.37"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}

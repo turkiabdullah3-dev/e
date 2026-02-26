@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرسومات البيانية - وزارة التعليم</title>
+    <meta name="description" content="صفحة مخصصة للرسومات البيانية لمتابعة الإنجاز والتأخير">
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+    
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="logo-container">
+                    <img class="logo" src="public/assets/الشعار بدون خلفية.png" alt="شعار وزارة التعليم">
+                </div>
+                <h2 class="sidebar-title">إدارة الأداء الوظيفي</h2>
+                <p class="sidebar-subtitle">لوحة التحكم</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-item">لوحة التحكم</a></li>
+                    <li><a href="performance.html" class="nav-item">مؤشرات الأداء</a></li>
+                    <li><a href="charts.html" class="nav-item active">الرسومات البيانية</a></li>
+                    <li><a href="reports.html" class="nav-item">التقارير</a></li>
+                    <li><a href="tasks.html" class="nav-item">المهام</a></li>
+                    <li><a href="goals.html" class="nav-item">الأهداف</a></li>
+                    <li><a href="projects.html" class="nav-item">المشاريع</a></li>
+                    <li><a href="team.html" class="nav-item">الفريق</a></li>
+                    <li><a href="settings.html" class="nav-item">الإعدادات</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <div class="topbar-brand">
+                    <img class="topbar-logo" src="public/assets/الشعار بدون خلفية.png" alt="شعار وزارة التعليم">
+                </div>
+                <div class="topbar-actions">
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 8px 16px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; margin-left: 16px;">
+                        <div style="text-align: right;">
+                            <div data-user-name style="font-size: 14px; font-weight: 600; color: var(--text);"></div>
+                            <div data-user-email style="font-size: 12px; color: var(--text-secondary);"></div>
+                        </div>
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #3498db, #9b59b6); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 16px;">ج</div>
+                    </div>
+                    <button id="theme-toggle" class="theme-btn" title="تبديل الوضع">الثيم</button>
+                    <button class="notification-btn">الإشعارات</button>
+                    <button class="profile-btn" title="تسجيل الخروج">الحساب</button>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- BREADCRUMB + LAST UPDATED -->
+                <nav class="breadcrumb" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <span class="active">الرسومات البيانية</span>
+                    <span data-last-updated>آخر تحديث: الآن</span>
+                </nav>
+
+                <!-- بطاقة ترحيب -->
+                <div style="margin-bottom: 20px; padding: 18px 20px; background: linear-gradient(135deg, rgba(52, 152, 219, 0.12), rgba(26, 188, 156, 0.08)); border-left: 4px solid var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(26, 188, 156, 0.2); display: flex; align-items: center; justify-content: center; font-size: 20px;">👋</div>
+                        <div>
+                            <div style="font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px;">مرحبًا الجوهرة الفايز</div>
+                            <div style="font-size: 12px; color: var(--text-muted);">aalfayez@moe.gov.sa</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-muted);">نتمنى لكِ يومًا مثمرًا 👏</div>
+                </div>
+
+                <!-- عنوان الصفحة الرئيسي -->
+                <div style="margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, rgba(26, 188, 156, 0.12), rgba(26, 188, 156, 0.05)); border-left: 4px solid var(--accent); border-radius: 12px;">
+                    <h1 style="font-size: 28px; font-weight: 800; color: var(--accent); margin: 0; letter-spacing: -0.5px;">📊 لوحة التحليلات والرسومات البيانية</h1>
+                    <p style="font-size: 13px; color: var(--text-muted); margin: 8px 0 0 0;">بيانات فورية وتحليلات متقدمة لمتابعة الإنجاز والأداء</p>
+                </div>
+
+                <!-- أسطورة الألوان -->
+                <div style="margin-bottom: 20px; padding: 16px; background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(46, 204, 113, 0.1)); border-radius: 10px; display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="width: 20px; height: 20px; background: linear-gradient(135deg, #1abc9c, #16a085); border-radius: 4px; box-shadow: 0 2px 6px rgba(26, 188, 156, 0.3);"></div>
+                        <span style="font-size: 12px; color: var(--text); font-weight: 500;">✅ إنجاز ممتاز (٪80 فما فوق)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="width: 20px; height: 20px; background: linear-gradient(135deg, #3498db, #2980b9); border-radius: 4px; box-shadow: 0 2px 6px rgba(52, 152, 219, 0.3);"></div>
+                        <span style="font-size: 12px; color: var(--text); font-weight: 500;">📊 في المسار (٪50-79)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="width: 20px; height: 20px; background: linear-gradient(135deg, #f39c12, #e67e22); border-radius: 4px; box-shadow: 0 2px 6px rgba(243, 156, 18, 0.3);"></div>
+                        <span style="font-size: 12px; color: var(--text); font-weight: 500;">⚠️ يحتاج اهتمام (٪20-49)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="width: 20px; height: 20px; background: linear-gradient(135deg, #e74c3c, #c0392b); border-radius: 4px; box-shadow: 0 2px 6px rgba(231, 76, 60, 0.3);"></div>
+                        <span style="font-size: 12px; color: var(--text); font-weight: 500;">❌ حرج (أقل من ٪20)</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="card chart-card-fullwidth">
+                        <h3 class="card-title">📈 نسبة الإنجاز - الاتجاه العام</h3>
+                        <p style="font-size: 12px; color: var(--text-muted); margin: 0 0 12px 0;">📌 الخط الأخضر يوضح تطور نسبة الإنجاز على مدى 8 أسابيع | القيمة الحالية: <strong style="color: var(--accent); font-weight: 600;">92٪ ✅</strong> اتجاه صاعد مستمر</p>
+                        <svg id="performance-chart" viewBox="0 0 800 200" style="width: 100%; height: 200px;">
+                            <defs>
+                                <linearGradient id="gradientFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1abc9c;stop-opacity:0.35" />
+                                    <stop offset="100%" style="stop-color:#1abc9c;stop-opacity:0" />
+                                </linearGradient>
+                                <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#1abc9c" />
+                                    <stop offset="50%" style="stop-color:#48d4b9" />
+                                    <stop offset="100%" style="stop-color:#16a085" />
+                                </linearGradient>
+                            </defs>
+                            <line x1="50" y1="40" x2="50" y2="160" stroke="#ffffff" stroke-width="2" stroke-opacity="0.2"/>
+                            <line x1="50" y1="160" x2="780" y2="160" stroke="#ffffff" stroke-width="2" stroke-opacity="0.2"/>
+                            <line x1="50" y1="100" x2="780" y2="100" stroke="#ffffff" stroke-width="1" stroke-opacity="0.1" stroke-dasharray="5,5"/>
+                            <polygon points="80,120 140,90 200,110 260,50 320,40 380,35 440,30 500,25 560,20 620,18 680,15 740,10" 
+                                fill="url(#gradientFill)" opacity="0.8"/>
+                            <polyline points="80,120 140,90 200,110 260,50 320,40 380,35 440,30 500,25 560,20 620,18 680,15 740,10" 
+                                fill="none" stroke="url(#accentGradient)" stroke-width="4" stroke-linejoin="round" filter="drop-shadow(0 3px 8px rgba(26, 188, 156, 0.3))"/>
+                            <circle cx="80" cy="120" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <circle cx="140" cy="90" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <circle cx="200" cy="110" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <circle cx="260" cy="50" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <circle cx="320" cy="40" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <circle cx="380" cy="35" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <circle cx="440" cy="30" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <circle cx="500" cy="25" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <circle cx="560" cy="20" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <circle cx="620" cy="18" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <circle cx="680" cy="15" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <circle cx="740" cy="10" r="5" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 6px rgba(26, 188, 156, 0.4))"/>
+                            <text x="80" y="175" font-size="11" font-weight="600" fill="#ecf0f1" text-anchor="middle">الأسبوع 1</text>
+                            <text x="140" y="175" font-size="11" font-weight="600" fill="#ecf0f1" text-anchor="middle">الأسبوع 2</text>
+                            <text x="200" y="175" font-size="11" font-weight="600" fill="#ecf0f1" text-anchor="middle">الأسبوع 3</text>
+                            <text x="260" y="175" font-size="11" font-weight="600" fill="#ecf0f1" text-anchor="middle">الأسبوع 4</text>
+                            <text x="320" y="175" font-size="11" font-weight="600" fill="#ecf0f1" text-anchor="middle">الأسبوع 5</text>
+                            <text x="380" y="175" font-size="11" font-weight="600" fill="#ecf0f1" text-anchor="middle">الأسبوع 6</text>
+                            <text x="440" y="175" font-size="11" font-weight="600" fill="#ecf0f1" text-anchor="middle">الأسبوع 7</text>
+                            <text x="500" y="175" font-size="11" font-weight="600" fill="#ecf0f1" text-anchor="middle">الأسبوع 8</text>
+                            <text x="60" y="25" font-size="13" font-weight="700" fill="#1abc9c">▬ نسبة الإنجاز</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="row mixed-row">
+                    <div class="side-charts">
+                        <div class="card chart-card-small">
+                            <h3 class="card-title">📊 حركة الإنجاز اليومية</h3>
+                            <p style="font-size: 11px; color: var(--text-muted); margin: 0 0 8px 0;">📌 الأزرق = الماضي | الأخضر = الحاضر | <strong style="color: #e74c3c;">↑ صاعد</strong> أمس: 82٪ ← اليوم: 89٪</p>
+                            <svg id="daily-completion-chart" viewBox="0 0 500 140" style="width: 100%; height: 140px;">
+                                <defs>
+                                    <linearGradient id="dailyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#3498db" />
+                                        <stop offset="100%" style="stop-color:#1abc9c" />
+                                    </linearGradient>
+                                </defs>
+                                <line x1="40" y1="20" x2="40" y2="120" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.15"/>
+                                <line x1="40" y1="120" x2="480" y2="120" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.15"/>
+                                <line x1="40" y1="80" x2="480" y2="80" stroke="#ffffff" stroke-width="1" stroke-opacity="0.1" stroke-dasharray="5,5"/>
+                                <line x1="40" y1="50" x2="480" y2="50" stroke="#ffffff" stroke-width="1" stroke-opacity="0.1" stroke-dasharray="5,5"/>
+                                <polyline points="60,95 110,75 160,85 210,60 260,70 310,45 360,30 410,20" 
+                                    fill="none" stroke="url(#dailyGradient)" stroke-width="3" stroke-linejoin="round" filter="drop-shadow(0 2px 6px rgba(52, 152, 219, 0.3))"/>
+                                <circle cx="60" cy="95" r="4" fill="#3498db" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 4px rgba(52, 152, 219, 0.4))"/>
+                                <circle cx="110" cy="75" r="4" fill="#3498db" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 4px rgba(52, 152, 219, 0.4))"/>
+                                <circle cx="160" cy="85" r="4" fill="#3498db" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 4px rgba(52, 152, 219, 0.4))"/>
+                                <circle cx="210" cy="60" r="4" fill="#3498db" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 4px rgba(52, 152, 219, 0.4))"/>
+                                <circle cx="260" cy="70" r="4" fill="#3498db" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 4px rgba(52, 152, 219, 0.4))"/>
+                                <circle cx="310" cy="45" r="4" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 4px rgba(26, 188, 156, 0.4))"/>
+                                <circle cx="360" cy="30" r="4" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 4px rgba(26, 188, 156, 0.4))"/>
+                                <circle cx="410" cy="20" r="4" fill="#1abc9c" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 2px 4px rgba(26, 188, 156, 0.4))"/>
+                                <text x="60" y="135" font-size="10" font-weight="600" fill="#ecf0f1" text-anchor="middle">السبت</text>
+                                <text x="110" y="135" font-size="10" font-weight="600" fill="#ecf0f1" text-anchor="middle">الأحد</text>
+                                <text x="160" y="135" font-size="10" font-weight="600" fill="#ecf0f1" text-anchor="middle">الإثنين</text>
+                                <text x="210" y="135" font-size="10" font-weight="600" fill="#ecf0f1" text-anchor="middle">الثلاثاء</text>
+                                <text x="260" y="135" font-size="10" font-weight="600" fill="#ecf0f1" text-anchor="middle">الأربعاء</text>
+                                <text x="310" y="135" font-size="10" font-weight="600" fill="#ecf0f1" text-anchor="middle">الخميس</text>
+                                <text x="360" y="135" font-size="10" font-weight="600" fill="#ecf0f1" text-anchor="middle">الجمعة</text>
+                                <text x="410" y="135" font-size="10" font-weight="600" fill="#ecf0f1" text-anchor="middle">اليوم</text>
+                                <text x="50" y="10" font-size="12" font-weight="700" fill="#3498db">▬ المهام المنجزة</text>
+                            </svg>
+                        </div>
+                        <div class="card chart-card-small">
+                            <h3 class="card-title">⭐ مؤشر الجودة</h3>
+                            <p style="font-size: 11px; color: var(--text-muted); margin: 0 0 8px 0;">📌 توزيع الجودة: ممتاز ٪62 | جيد جداً ٪28 | جيد ٪10 | <strong style="color: #27ae60;">الأداء الكلي: ممتاز ✅</strong></p>
+                            <svg id="quality-chart" viewBox="0 0 180 140" style="width: 100%; height: 140px;">
+                                <defs>
+                                    <linearGradient id="qualityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#f39c12" />
+                                        <stop offset="100%" style="stop-color:#e74c3c" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="90" cy="70" r="45" fill="none" stroke="url(#qualityGradient)" stroke-width="20" 
+                                    stroke-dasharray="282" stroke-dashoffset="0" opacity="0.9" filter="drop-shadow(0 3px 8px rgba(243, 156, 18, 0.3))"/>
+                                <circle cx="90" cy="70" r="45" fill="none" stroke="#ffffff" stroke-width="20" 
+                                    stroke-dasharray="47" stroke-dashoffset="-282" opacity="0.2"/>
+                                <text x="90" y="75" font-size="18" font-weight="800" fill="#f39c12" text-anchor="middle">92%</text>
+                                <text x="90" y="90" font-size="11" font-weight="600" fill="#ecf0f1" text-anchor="middle">من أول مرة</text>
+                            </svg>
+                            <div class="quality-metrics">
+                                <div class="metric" data-tooltip="نسبة المخرجات التي تحتاج إعادة عمل - يجب تقليلها">
+                                    <span class="metric-label">إعادة العمل</span>
+                                    <span class="metric-value">5.2%</span>
+                                </div>
+                                <div class="metric" data-tooltip="عدد الأيام المتوسطة لاعتماد المخرجات من قبل الإدارة">
+                                    <span class="metric-label">متوسط الاعتماد</span>
+                                    <span class="metric-value">1.3 يوم</span>
+                                </div>
+                                <div class="metric" data-tooltip="نسبة المخرجات المعتمدة من أول مرة بدون أي تعديلات">
+                                    <span class="metric-label">من أول مرة</span>
+                                    <span class="metric-value">94.8%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card heatmap-card-large">
+                        <h3 class="card-title">خريطة الضغط</h3>
+                        <div class="heatmap-container">
+                            <div class="heatmap">
+                                <div class="heatmap-header">
+                                    <span class="heatmap-label"></span>
+                                    <span>السبت</span>
+                                    <span>الأحد</span>
+                                    <span>الإثنين</span>
+                                    <span>الثلاثاء</span>
+                                    <span>الأربعاء</span>
+                                    <span>الخميس</span>
+                                </div>
+                                <div class="heatmap-row">
+                                    <span class="heatmap-label">القسم 1</span>
+                                    <div class="heatmap-cell" style="--intensity: 0.8;" title="ضغط عالي جداً - 80% من السعة\nالأربعاء هو أعلى يوم ضغط"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.6;" title="ضغط متوسط - 60% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.9;" title="ضغط عالي جداً - 90% من السعة\nأقصى تحميل على النظام"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.4;" title="ضغط منخفض - 40% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.7;" title="ضغط عالي - 70% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.5;" title="ضغط متوسط - 50% من السعة"></div>
+                                </div>
+                                <div class="heatmap-row">
+                                    <span class="heatmap-label">القسم 2</span>
+                                    <div class="heatmap-cell" style="--intensity: 0.5;" title="ضغط متوسط - 50% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.7;" title="ضغط عالي - 70% من السعة\nتطلب موارد إضافية"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.8;" title="ضغط عالي جداً - 80% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.6;" title="ضغط متوسط - 60% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.4;" title="ضغط منخفض - 40% من السعة\nأفضل أوقات الإنتاجية"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.7;" title="ضغط عالي - 70% من السعة"></div>
+                                </div>
+                                <div class="heatmap-row">
+                                    <span class="heatmap-label">القسم 3</span>
+                                    <div class="heatmap-cell" style="--intensity: 0.6;" title="ضغط متوسط - 60% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.8;" title="ضغط عالي جداً - 80% من السعة\nمنطقة حرجة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.5;" title="ضغط متوسط - 50% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.7;" title="ضغط عالي - 70% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.9;" title="ضغط عالي جداً - 90% من السعة\nحالة طوارئ - يحتاج تدخل فوري"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.4;" title="ضغط منخفض - 40% من السعة"></div>
+                                </div>
+                                <div class="heatmap-row">
+                                    <span class="heatmap-label">القسم 4</span>
+                                    <div class="heatmap-cell" style="--intensity: 0.7;" title="ضغط عالي - 70% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.5;" title="ضغط متوسط - 50% من السعة\nالتوازن الأمثل"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.8;" title="ضغط عالي جداً - 80% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.6;" title="ضغط متوسط - 60% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.7;" title="ضغط عالي - 70% من السعة"></div>
+                                    <div class="heatmap-cell" style="--intensity: 0.8;" title="ضغط عالي جداً - 80% من السعة"></div>
+                                </div>
+                            </div>
+                            <div class="heatmap-legend">
+                                <span>منخفض</span>
+                                <div class="legend-gradient"></div>
+                                <span>عالي</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FOOTER -->
+            <footer class="app-footer">
+                <p>© 2024 - وزارة التعليم. جميع الحقوق محفوظة | <a href="#" style="color: var(--accent); text-decoration: none;">الإعدادات</a> | <a href="#" style="color: var(--accent); text-decoration: none;">المساعدة</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="src/config.js"></script>
+    <script src="src/auth.js"></script>
+    <script src="src/script.js"></script>
+</body>
+</html>

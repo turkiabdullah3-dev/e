@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المهام - وزارة التعليم</title>
+    <meta name="description" content="صفحة مخصصة لعرض المهام ومتابعة حالاتها">
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+    
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="logo-container">
+                    <img class="logo" src="public/assets/الشعار بدون خلفية.png" alt="شعار وزارة التعليم">
+                </div>
+                <h2 class="sidebar-title">إدارة الأداء الوظيفي</h2>
+                <p class="sidebar-subtitle">لوحة التحكم</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-item">لوحة التحكم</a></li>
+                    <li><a href="performance.html" class="nav-item">مؤشرات الأداء</a></li>
+                    <li><a href="charts.html" class="nav-item">الرسومات البيانية</a></li>
+                    <li><a href="reports.html" class="nav-item">التقارير</a></li>
+                    <li><a href="tasks.html" class="nav-item active">المهام</a></li>
+                    <li><a href="goals.html" class="nav-item">الأهداف</a></li>
+                    <li><a href="projects.html" class="nav-item">المشاريع</a></li>
+                    <li><a href="team.html" class="nav-item">الفريق</a></li>
+                    <li><a href="settings.html" class="nav-item">الإعدادات</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <div class="topbar-brand">
+                    <img class="topbar-logo" src="public/assets/الشعار بدون خلفية.png" alt="شعار وزارة التعليم">
+                </div>
+                <div class="topbar-actions">
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 8px 16px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; margin-left: 16px;">
+                        <div style="text-align: right;">
+                            <div data-user-name style="font-size: 14px; font-weight: 600; color: var(--text);"></div>
+                            <div data-user-email style="font-size: 12px; color: var(--text-secondary);"></div>
+                        </div>
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #3498db, #9b59b6); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 16px;">ج</div>
+                    </div>
+                    <button id="theme-toggle" class="theme-btn" title="تبديل الوضع">الثيم</button>
+                    <button class="notification-btn">الإشعارات</button>
+                    <button class="profile-btn" title="تسجيل الخروج">الحساب</button>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- BREADCRUMB -->
+                <nav class="breadcrumb">
+                    <a href="index.html">لوحة التحكم</a>
+                    <span>/</span>
+                    <span class="active">المهام</span>
+                </nav>
+
+                <!-- بطاقة ترحيب -->
+                <div style="margin-bottom: 20px; padding: 18px 20px; background: linear-gradient(135deg, rgba(52, 152, 219, 0.12), rgba(26, 188, 156, 0.08)); border-left: 4px solid var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(26, 188, 156, 0.2); display: flex; align-items: center; justify-content: center; font-size: 20px;">👋</div>
+                        <div>
+                            <div style="font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px;">مرحبًا الجوهرة الفايز</div>
+                            <div style="font-size: 12px; color: var(--text-muted);">aalfayez@moe.gov.sa</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-muted);">نتمنى لكِ يومًا مثمرًا 👏</div>
+                </div>
+                
+                <div class="row">
+                    <div class="card work-section">
+                        <div class="work-header">
+                            <h3 class="card-title">قائمة المهام</h3>
+                            <div class="work-controls">
+                                <input type="text" class="search-input" placeholder="ابحث عن مهمة...">
+                                <select class="filter-select">
+                                    <option value="">جميع الحالات</option>
+                                    <option value="active">نشط</option>
+                                    <option value="progress">قيد التنفيذ</option>
+                                    <option value="done">مكتملة</option>
+                                    <option value="overdue">متأخر</option>
+                                    <option value="blocked">مسدود</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <table class="work-table">
+                            <thead>
+                                <tr>
+                                    <th>اسم المهمة</th>
+                                    <th>المسؤول</th>
+                                    <th>المشروع</th>
+                                    <th>الحالة</th>
+                                    <th>الإنجاز</th>
+                                    <th>الاستحقاق</th>
+                                    <th>إجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>مراجعة التصميم النهائي</td>
+                                    <td>الجوهرة الفايز</td>
+                                    <td>نظام الإدارة</td>
+                                    <td><span class="badge badge-active">نشط</span></td>
+                                    <td><div class="progress-bar" style="--progress: 45%;"></div></td>
+                                    <td>2026-02-26</td>
+                                    <td><button class="action-btn">عرض</button></td>
+                                </tr>
+                                <tr>
+                                    <td>تطوير الواجهة الأمامية</td>
+                                    <td>الجوهرة الفايز</td>
+                                    <td>نظام الإدارة</td>
+                                    <td><span class="badge badge-progress">قيد التنفيذ</span></td>
+                                    <td><div class="progress-bar" style="--progress: 75%;"></div></td>
+                                    <td>2026-02-28</td>
+                                    <td><button class="action-btn">عرض</button></td>
+                                </tr>
+                                <tr>
+                                    <td>اختبار قاعدة البيانات</td>
+                                    <td>الجوهرة الفايز</td>
+                                    <td>نظام الإدارة</td>
+                                    <td><span class="badge badge-done">مكتملة</span></td>
+                                    <td><div class="progress-bar" style="--progress: 100%;"></div></td>
+                                    <td>2026-02-24</td>
+                                    <td><button class="action-btn">عرض</button></td>
+                                </tr>
+                                <tr class="row-overdue">
+                                    <td>توثيق الـ API</td>
+                                    <td>نورة العتيبي</td>
+                                    <td>نظام الإدارة</td>
+                                    <td><span class="badge badge-overdue">متأخر</span></td>
+                                    <td><div class="progress-bar overdue" style="--progress: 45%;"></div></td>
+                                    <td>2026-02-27</td>
+                                    <td><button class="action-btn">عرض</button></td>
+                                </tr>
+                                <tr>
+                                    <td>تحسين الأداء</td>
+                                    <td>الجوهرة الفايز</td>
+                                    <td>التحسين المستمر</td>
+                                    <td><span class="badge badge-active">نشط</span></td>
+                                    <td><div class="progress-bar" style="--progress: 30%;"></div></td>
+                                    <td>2026-03-10</td>
+                                    <td><button class="action-btn">عرض</button></td>
+                                </tr>
+                                <tr>
+                                    <td>إعداد الاختبارات</td>
+                                    <td>نورة العتيبي</td>
+                                    <td>ضمان الجودة</td>
+                                    <td><span class="badge badge-progress">قيد التنفيذ</span></td>
+                                    <td><div class="progress-bar" style="--progress: 60%;"></div></td>
+                                    <td>2026-03-05</td>
+                                    <td><button class="action-btn">عرض</button></td>
+                                </tr>
+                                <tr>
+                                    <td>مراجعة الأمان</td>
+                                    <td>نورة العتيبي</td>
+                                    <td>نظام الإدارة</td>
+                                    <td><span class="badge badge-blocked">مسدود</span></td>
+                                    <td><div class="progress-bar" style="--progress: 20%;"></div></td>
+                                    <td>2026-02-26</td>
+                                    <td><button class="action-btn">عرض</button></td>
+                                </tr>
+                                <tr>
+                                    <td>دعم المستخدمين</td>
+                                    <td>الجوهرة الفايز</td>
+                                    <td>التدريب</td>
+                                    <td><span class="badge badge-done">مكتملة</span></td>
+                                    <td><div class="progress-bar" style="--progress: 100%;"></div></td>
+                                    <td>2026-02-20</td>
+                                    <td><button class="action-btn">عرض</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FOOTER -->
+            <footer class="app-footer">
+                <p>© 2024 - وزارة التعليم. جميع الحقوق محفوظة | <a href="#" style="color: var(--accent); text-decoration: none;">الإعدادات</a> | <a href="#" style="color: var(--accent); text-decoration: none;">المساعدة</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="src/config.js"></script>
+    <script src="src/auth.js"></script>
+    <script src="src/script.js"></script>
+</body>
+</html>

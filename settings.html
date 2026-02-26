@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - وزارة التعليم</title>
+    <meta name="description" content="إعدادات النظام والحساب الشخصي">
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <div class="page-loader" id="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+    
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="logo-container">
+                    <img class="logo" src="public/assets/الشعار بدون خلفية.png" alt="شعار وزارة التعليم">
+                </div>
+                <h2 class="sidebar-title">إدارة الأداء الوظيفي</h2>
+                <p class="sidebar-subtitle">لوحة التحكم</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-item">لوحة التحكم</a></li>
+                    <li><a href="performance.html" class="nav-item">مؤشرات الأداء</a></li>
+                    <li><a href="charts.html" class="nav-item">الرسومات البيانية</a></li>
+                    <li><a href="reports.html" class="nav-item">التقارير</a></li>
+                    <li><a href="tasks.html" class="nav-item">المهام</a></li>
+                    <li><a href="goals.html" class="nav-item">الأهداف</a></li>
+                    <li><a href="projects.html" class="nav-item">المشاريع</a></li>
+                    <li><a href="team.html" class="nav-item">الفريق</a></li>
+                    <li><a href="settings.html" class="nav-item active">الإعدادات</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- TOPBAR -->
+            <div class="topbar">
+                <div class="topbar-brand">
+                    <img class="topbar-logo" src="public/assets/الشعار بدون خلفية.png" alt="شعار وزارة التعليم">
+                </div>
+                <div class="topbar-actions">
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 8px 16px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; margin-left: 16px;">
+                        <div style="text-align: right;">
+                            <div data-user-name style="font-size: 14px; font-weight: 600; color: var(--text);"></div>
+                            <div data-user-email style="font-size: 12px; color: var(--text-secondary);"></div>
+                        </div>
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #3498db, #9b59b6); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 16px;">ج</div>
+                    </div>
+                    <button id="theme-toggle" class="theme-btn" title="تبديل الوضع">الثيم</button>
+                    <button class="notification-btn">الإشعارات</button>
+                    <button class="profile-btn" title="تسجيل الخروج">الحساب</button>
+                </div>
+            </div>
+
+            <!-- CONTENT AREA -->
+            <div class="content">
+                <!-- BREADCRUMB -->
+                <nav class="breadcrumb">
+                    <a href="index.html">لوحة التحكم</a>
+                    <span>/</span>
+                    <span class="active">الإعدادات</span>
+                </nav>
+
+                <!-- بطاقة ترحيب -->
+                <div style="margin-bottom: 20px; padding: 18px 20px; background: linear-gradient(135deg, rgba(52, 152, 219, 0.12), rgba(26, 188, 156, 0.08)); border-left: 4px solid var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(26, 188, 156, 0.2); display: flex; align-items: center; justify-content: center; font-size: 20px;">⚙️</div>
+                        <div>
+                            <div style="font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px;">إعدادات النظام</div>
+                            <div style="font-size: 12px; color: var(--text-muted);">قم بتخصيص تجربتك</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Sections -->
+                <div class="row">
+                    <!-- إعدادات الحساب -->
+                    <div class="card" style="grid-column: span 12;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border);">
+                            <div style="width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); display: flex; align-items: center; justify-content: center; font-size: 18px;">👤</div>
+                            <h3 style="font-size: 18px; font-weight: 700; color: var(--text); margin: 0;">معلومات الحساب</h3>
+                        </div>
+                        
+                        <div style="display: grid; gap: 16px;">
+                            <div style="display: grid; grid-template-columns: 140px 1fr; gap: 12px; align-items: center; padding: 12px; background: var(--card); border-radius: 8px;">
+                                <span style="font-weight: 600; color: var(--text-muted);">الاسم:</span>
+                                <span data-user-name style="color: var(--text); font-weight: 600;"></span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 140px 1fr; gap: 12px; align-items: center; padding: 12px; background: var(--card); border-radius: 8px;">
+                                <span style="font-weight: 600; color: var(--text-muted);">البريد الإلكتروني:</span>
+                                <span data-user-email style="color: var(--text); font-weight: 600;"></span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 140px 1fr; gap: 12px; align-items: center; padding: 12px; background: var(--card); border-radius: 8px;">
+                                <span style="font-weight: 600; color: var(--text-muted);">الدور:</span>
+                                <span style="color: var(--accent); font-weight: 600;">مدير مشاريع</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- إعدادات المظهر -->
+                    <div class="card" style="grid-column: span 6;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border);">
+                            <div style="width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #f39c12, #e67e22); display: flex; align-items: center; justify-content: center; font-size: 18px;">🎨</div>
+                            <h3 style="font-size: 18px; font-weight: 700; color: var(--text); margin: 0;">المظهر</h3>
+                        </div>
+
+                        <div style="display: grid; gap: 16px;">
+                            <div style="padding: 14px; background: var(--card); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text); margin-bottom: 4px;">الوضع الداكن</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">تفعيل الوضع الليلي</div>
+                                </div>
+                                <button id="theme-toggle-settings" class="theme-btn">تبديل</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- إعدادات الإشعارات -->
+                    <div class="card" style="grid-column: span 6;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border);">
+                            <div style="width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #3498db, #2980b9); display: flex; align-items: center; justify-content: center; font-size: 18px;">🔔</div>
+                            <h3 style="font-size: 18px; font-weight: 700; color: var(--text); margin: 0;">الإشعارات</h3>
+                        </div>
+
+                        <div style="display: grid; gap: 12px;">
+                            <div style="padding: 12px; background: var(--card); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text); font-size: 14px;">تنبيهات المهام</span>
+                                <input type="checkbox" checked style="width: 20px; height: 20px; cursor: pointer;">
+                            </div>
+                            <div style="padding: 12px; background: var(--card); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text); font-size: 14px;">تنبيهات المشاريع</span>
+                                <input type="checkbox" checked style="width: 20px; height: 20px; cursor: pointer;">
+                            </div>
+                            <div style="padding: 12px; background: var(--card); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                                <span style="color: var(--text); font-size: 14px;">تنبيهات الأهداف</span>
+                                <input type="checkbox" checked style="width: 20px; height: 20px; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- إعدادات الأمان -->
+                    <div class="card" style="grid-column: span 12;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border);">
+                            <div style="width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #e74c3c, #c0392b); display: flex; align-items: center; justify-content: center; font-size: 18px;">🔒</div>
+                            <h3 style="font-size: 18px; font-weight: 700; color: var(--text); margin: 0;">الأمان والخصوصية</h3>
+                        </div>
+
+                        <div style="display: grid; gap: 14px;">
+                            <button style="padding: 14px 20px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 16px rgba(26, 188, 156, 0.3)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+                                🔑 تغيير كلمة المرور
+                            </button>
+                            <button id="logout-btn" style="padding: 14px 20px; background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 16px rgba(231, 76, 60, 0.3)';" onmouseout="this.style.transform=''; this.style.boxShadow='';">
+                                🚪 تسجيل الخروج
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- معلومات النظام -->
+                    <div class="card" style="grid-column: span 12;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border);">
+                            <div style="width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #9b59b6, #8e44ad); display: flex; align-items: center; justify-content: center; font-size: 18px;">ℹ️</div>
+                            <h3 style="font-size: 18px; font-weight: 700; color: var(--text); margin: 0;">معلومات النظام</h3>
+                        </div>
+
+                        <div style="display: grid; gap: 12px;">
+                            <div style="display: grid; grid-template-columns: 140px 1fr; gap: 12px; padding: 10px; background: var(--card); border-radius: 8px;">
+                                <span style="color: var(--text-muted); font-size: 14px;">الإصدار:</span>
+                                <span style="color: var(--text); font-weight: 600; font-size: 14px;">v2.0.0</span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 140px 1fr; gap: 12px; padding: 10px; background: var(--card); border-radius: 8px;">
+                                <span style="color: var(--text-muted); font-size: 14px;">آخر تحديث:</span>
+                                <span style="color: var(--text); font-weight: 600; font-size: 14px;">26 فبراير 2026</span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 140px 1fr; gap: 12px; padding: 10px; background: var(--card); border-radius: 8px;">
+                                <span style="color: var(--text-muted); font-size: 14px;">الجهة:</span>
+                                <span style="color: var(--text); font-weight: 600; font-size: 14px;">وزارة التعليم - المملكة العربية السعودية</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="src/auth.js"></script>
+    <script src="src/config.js"></script>
+    <script src="src/script.js"></script>
+    
+    <script>
+        // Theme toggle in settings page
+        const themeToggleSettings = document.getElementById('theme-toggle-settings');
+        if (themeToggleSettings) {
+            themeToggleSettings.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            });
+        }
+
+        // Logout button
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                if (confirm('هل أنت متأكد من تسجيل الخروج؟')) {
+                    logout();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤشرات الأداء - وزارة التعليم</title>
+    <meta name="description" content="ملخصات أداء وتظلّمات على مستوى كامل الإدارات السعودية بدون بيانات شخصية">
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+    
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="logo-container">
+                    <img class="logo" src="public/assets/الشعار بدون خلفية.png" alt="شعار وزارة التعليم">
+                </div>
+                <h2 class="sidebar-title">إدارة الأداء الوظيفي</h2>
+                <p class="sidebar-subtitle">لوحة التحكم</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-item">لوحة التحكم</a></li>
+                    <li><a href="performance.html" class="nav-item active">مؤشرات الأداء</a></li>
+                    <li><a href="charts.html" class="nav-item">الرسومات البيانية</a></li>
+                    <li><a href="reports.html" class="nav-item">التقارير</a></li>
+                    <li><a href="tasks.html" class="nav-item">المهام</a></li>
+                    <li><a href="goals.html" class="nav-item">الأهداف</a></li>
+                    <li><a href="projects.html" class="nav-item">المشاريع</a></li>
+                    <li><a href="team.html" class="nav-item">الفريق</a></li>
+                    <li><a href="settings.html" class="nav-item">الإعدادات</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <div class="topbar-brand">
+                    <img class="topbar-logo" src="public/assets/الشعار بدون خلفية.png" alt="شعار وزارة التعليم">
+                </div>
+                <div class="topbar-actions">
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 8px 16px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; margin-left: 16px;">
+                        <div style="text-align: right;">
+                            <div data-user-name style="font-size: 14px; font-weight: 600; color: var(--text);"></div>
+                            <div data-user-email style="font-size: 12px; color: var(--text-secondary);"></div>
+                        </div>
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #3498db, #9b59b6); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 16px;">ج</div>
+                    </div>
+                    <button id="theme-toggle" class="theme-btn" title="تبديل الوضع">الثيم</button>
+                    <button class="notification-btn">الإشعارات</button>
+                    <button class="profile-btn" title="تسجيل الخروج">الحساب</button>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- BREADCRUMB + LAST UPDATED -->
+                <nav class="breadcrumb" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <span class="active">مؤشرات الأداء</span>
+                    <span data-last-updated>آخر تحديث: الآن</span>
+                </nav>
+
+                <!-- بطاقة ترحيب -->
+                <div style="margin-bottom: 20px; padding: 18px 20px; background: linear-gradient(135deg, rgba(52, 152, 219, 0.12), rgba(26, 188, 156, 0.08)); border-left: 4px solid var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(26, 188, 156, 0.2); display: flex; align-items: center; justify-content: center; font-size: 20px;">👋</div>
+                        <div>
+                            <div style="font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px;">مرحبًا الجوهرة الفايز</div>
+                            <div style="font-size: 12px; color: var(--text-muted);">aalfayez@moe.gov.sa</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-muted);">نتمنى لكِ يومًا مثمرًا 👏</div>
+                </div>
+
+                <!-- عنوان الصفحة الرئيسي -->
+                <div style="margin-bottom: 20px; padding: 20px; background: linear-gradient(135deg, rgba(26, 188, 156, 0.12), rgba(26, 188, 156, 0.05)); border-left: 4px solid var(--accent); border-radius: 12px;">
+                    <h1 style="font-size: 28px; font-weight: 800; color: var(--accent); margin: 0; letter-spacing: -0.5px;">📊 مؤشرات الأداء الشاملة</h1>
+                    <p style="font-size: 13px; color: var(--text-muted); margin: 8px 0 0 0;">آخر تحديث: اليوم الساعة 3:45 م</p>
+                </div>
+
+                <!-- ملخص المؤشرات العليا -->
+                <div class="row kpi-cards kpi-cards-3">
+                    <div class="card kpi-card">
+                        <div class="kpi-content">
+                            <div class="kpi-value">678,543</div>
+                            <p class="kpi-label">👥 إجمالي عدد الموظفين</p>
+                            <p style="font-size: 11px; color: var(--text-muted); margin: 4px 0 0 0; font-weight: 500;">بالعدد | ↑ زيادة 4.2%</p>
+                            <div class="kpi-trend up">↑ 4.2% هذا الشهر</div>
+                            <div class="kpi-subtext">زيادة مقارنة بالشهر السابق</div>
+                        </div>
+                    </div>
+
+                    <div class="card kpi-card">
+                        <div class="kpi-content">
+                            <div class="kpi-value">4.2/5</div>
+                            <p class="kpi-label">⭐ متوسط التقييم العام</p>
+                            <p style="font-size: 11px; color: var(--text-muted); margin: 4px 0 0 0; font-weight: 500;">من 5 نجوم | متقدم جداً</p>
+                            <div class="kpi-trend down">↓ 0.3 نقطة</div>
+                            <div class="kpi-subtext">انخفاض طفيف عن الفترة الماضية</div>
+                        </div>
+                    </div>
+
+                    <div class="card kpi-card">
+                        <div class="kpi-content">
+                            <div class="kpi-value">165,478</div>
+                            <p class="kpi-label">📋 إجمالي التظلمات</p>
+                            <p style="font-size: 11px; color: var(--text-muted); margin: 4px 0 0 0; font-weight: 500;">بالعدد | منها ٪90 مغلقة</p>
+                            <div class="kpi-trend up">↑ 6.1% أسبوعياً</div>
+                            <div class="kpi-subtext">ارتفاع مرتبط بزيادة الطلبات</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. ملخص التظلمات + معايير الجودة (نصين) -->
+                <div style="margin-bottom: 16px; padding: 12px 14px; background: linear-gradient(135deg, rgba(46, 204, 113, 0.08), rgba(52, 152, 219, 0.08)); border-radius: 8px; display: flex; gap: 16px; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="font-size: 16px;">✅</span>
+                        <span style="font-size: 11px; color: var(--text); font-weight: 500;">مغلق = تم حل التظلم</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="font-size: 16px;">⏳</span>
+                        <span style="font-size: 11px; color: var(--text); font-weight: 500;">في الانتظار = قيد المراجعة</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="font-size: 16px;">⚠️</span>
+                        <span style="font-size: 11px; color: var(--text); font-weight: 500;">متأخر = يحتاج متابعة عاجلة</span>
+                    </div>
+                </div>
+
+                <div class="row-flex">
+                    <!-- ملخص التظلمات - أفقي بسيط وواضح -->
+                    <div class="grievances-summary-row">
+                        <div class="summary-row-item closed-summary">
+                            <div class="row-left">
+                                <div class="row-icon">✓</div>
+                                <div class="row-text">
+                                    <div class="row-label">تم الإغلاق</div>
+                                    <div class="row-subtext">تم حل التظلمات وإغلاقها نهائيًا</div>
+                                </div>
+                            </div>
+                            <div class="row-right">
+                                <div class="row-number">150,485</div>
+                                <div class="row-percent">91%</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-row-item reviewing-summary">
+                            <div class="row-left">
+                                <div class="row-icon">⟳</div>
+                                <div class="row-text">
+                                    <div class="row-label">قيد المراجعة</div>
+                                    <div class="row-subtext">جاري التحقق واتخاذ القرار</div>
+                                </div>
+                            </div>
+                            <div class="row-right">
+                                <div class="row-number">9,929</div>
+                                <div class="row-percent">6%</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-row-item pending-summary">
+                            <div class="row-left">
+                                <div class="row-icon">⏳</div>
+                                <div class="row-text">
+                                    <div class="row-label">بانتظار الاعتماد</div>
+                                    <div class="row-subtext">مكتملة المراجعة وتنتظر الموافقة</div>
+                                </div>
+                            </div>
+                            <div class="row-right">
+                                <div class="row-number">5,064</div>
+                                <div class="row-percent">3%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- رسم بياني للتطور الزمني - عرض كامل -->
+                <div class="row">
+                    <div class="card chart-small">
+                        <h4 class="card-subtitle">تطور التظلمات (آخر 7 أيام)</h4>
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin: 8px 0 12px 0;">
+                            <span class="badge" style="background: rgba(39, 174, 96, 0.2); color: var(--success);">المُغلقة</span>
+                            <span class="badge" style="background: rgba(52, 152, 219, 0.2); color: var(--info);">قيد المراجعة</span>
+                            <span class="badge" style="background: rgba(243, 156, 18, 0.2); color: var(--warning);">الانتظار</span>
+                        </div>
+                        <svg viewBox="0 0 800 200" style="width: 100%; height: 170px;">
+                            <!-- Grid + Y labels -->
+                            <line x1="60" y1="30" x2="60" y2="160" stroke="var(--border)" stroke-width="1" stroke-opacity="0.7"/>
+                            <line x1="60" y1="160" x2="760" y2="160" stroke="var(--border)" stroke-width="1" stroke-opacity="0.7"/>
+                            <line x1="60" y1="120" x2="760" y2="120" stroke="var(--border)" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="5,5"/>
+                            <line x1="60" y1="80" x2="760" y2="80" stroke="var(--border)" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="5,5"/>
+
+                            <text x="52" y="162" font-size="10" fill="var(--text-muted)" text-anchor="end">0</text>
+                            <text x="52" y="122" font-size="10" fill="var(--text-muted)" text-anchor="end">50K</text>
+                            <text x="52" y="82" font-size="10" fill="var(--text-muted)" text-anchor="end">100K</text>
+                            <text x="52" y="42" font-size="10" fill="var(--text-muted)" text-anchor="end">150K</text>
+
+                            <!-- Lines للفئات الثلاث -->
+                            <polyline points="90,60 190,55 290,52 390,50 490,46 590,42 690,38"
+                                      fill="none" stroke="var(--success)" stroke-width="3" opacity="0.9"/>
+                            <polyline points="90,110 190,106 290,103 390,101 490,98 590,96 690,94"
+                                      fill="none" stroke="var(--info)" stroke-width="3" opacity="0.9"/>
+                            <polyline points="90,135 190,133 290,131 390,130 490,129 590,128 690,127"
+                                      fill="none" stroke="var(--warning)" stroke-width="3" opacity="0.9"/>
+
+                            <!-- نقاط واضحة -->
+                            <circle cx="90" cy="60" r="4" fill="var(--success)"/>
+                            <circle cx="190" cy="55" r="4" fill="var(--success)"/>
+                            <circle cx="290" cy="52" r="4" fill="var(--success)"/>
+                            <circle cx="390" cy="50" r="4" fill="var(--success)"/>
+                            <circle cx="490" cy="46" r="4" fill="var(--success)"/>
+                            <circle cx="590" cy="42" r="4" fill="var(--success)"/>
+                            <circle cx="690" cy="38" r="4" fill="var(--success)"/>
+
+                            <circle cx="90" cy="110" r="4" fill="var(--info)"/>
+                            <circle cx="190" cy="106" r="4" fill="var(--info)"/>
+                            <circle cx="290" cy="103" r="4" fill="var(--info)"/>
+                            <circle cx="390" cy="101" r="4" fill="var(--info)"/>
+                            <circle cx="490" cy="98" r="4" fill="var(--info)"/>
+                            <circle cx="590" cy="96" r="4" fill="var(--info)"/>
+                            <circle cx="690" cy="94" r="4" fill="var(--info)"/>
+
+                            <circle cx="90" cy="135" r="4" fill="var(--warning)"/>
+                            <circle cx="190" cy="133" r="4" fill="var(--warning)"/>
+                            <circle cx="290" cy="131" r="4" fill="var(--warning)"/>
+                            <circle cx="390" cy="130" r="4" fill="var(--warning)"/>
+                            <circle cx="490" cy="129" r="4" fill="var(--warning)"/>
+                            <circle cx="590" cy="128" r="4" fill="var(--warning)"/>
+                            <circle cx="690" cy="127" r="4" fill="var(--warning)"/>
+
+                            <!-- X axis labels (أيام) -->
+                            <text x="90" y="178" font-size="10" fill="var(--text-muted)" text-anchor="middle">الثلاثاء</text>
+                            <text x="190" y="178" font-size="10" fill="var(--text-muted)" text-anchor="middle">الأربعاء</text>
+                            <text x="290" y="178" font-size="10" fill="var(--text-muted)" text-anchor="middle">الخميس</text>
+                            <text x="390" y="178" font-size="10" fill="var(--text-muted)" text-anchor="middle">الجمعة</text>
+                            <text x="490" y="178" font-size="10" fill="var(--text-muted)" text-anchor="middle">السبت</text>
+                            <text x="590" y="178" font-size="10" fill="var(--text-muted)" text-anchor="middle">الأحد</text>
+                            <text x="690" y="178" font-size="10" fill="var(--text-muted)" text-anchor="middle">الاثنين</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 3. مقارنة التظلمات بين الإدارات - عرض كامل -->
+                <div class="row">
+                    <div class="card">
+                        <h3 class="card-title">مقارنة التظلمات بين الإدارات</h3>
+                        <table class="updates-table">
+                            <thead>
+                                <tr>
+                                    <th>الإدارة</th>
+                                    <th>عدد الموظفين</th>
+                                    <th>عدد التظلمات</th>
+                                    <th>نسبة التظلم</th>
+                                    <th>معدل الإغلاق</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>الإدارة العامة للتقنية</td>
+                                    <td>320</td>
+                                    <td>8</td>
+                                    <td><span class="badge success">2.5%</span></td>
+                                    <td>94%</td>
+                                </tr>
+                                <tr>
+                                    <td>التعليم الرقمي</td>
+                                    <td>280</td>
+                                    <td>12</td>
+                                    <td><span class="badge success">4.3%</span></td>
+                                    <td>90%</td>
+                                </tr>
+                                <tr>
+                                    <td>إدارة الجودة</td>
+                                    <td>210</td>
+                                    <td>18</td>
+                                    <td><span class="badge warning">8.6%</span></td>
+                                    <td>88%</td>
+                                </tr>
+                                <tr>
+                                    <td>التطوير المؤسسي</td>
+                                    <td>190</td>
+                                    <td>5</td>
+                                    <td><span class="badge success">2.6%</span></td>
+                                    <td>92%</td>
+                                </tr>
+                                <tr>
+                                    <td>التدريب والدعم</td>
+                                    <td>248</td>
+                                    <td>22</td>
+                                    <td><span class="badge danger">8.9%</span></td>
+                                    <td>86%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 4. التظلمات حسب المناطق الجغرافية + رسم بياني الحمل والأداء (أفقي) -->
+                <div class="row-flex">
+                    <!-- الجدول -->
+                    <div class="column-half">
+                        <div class="card">
+                            <h3 class="card-title">التظلمات حسب المناطق</h3>
+                            <table class="updates-table table-compact">
+                                <thead>
+                                    <tr>
+                                        <th>المنطقة</th>
+                                        <th>العدد</th>
+                                        <th>النسبة</th>
+                                        <th>الإغلاق</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>الرياض</td>
+                                        <td>42,350</td>
+                                        <td>25.6%</td>
+                                        <td><span class="badge success">92%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>مكة</td>
+                                        <td>28,910</td>
+                                        <td>17.5%</td>
+                                        <td><span class="badge success">89%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>القصيم</td>
+                                        <td>18,640</td>
+                                        <td>11.3%</td>
+                                        <td><span class="badge success">91%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>الشرقية</td>
+                                        <td>22,580</td>
+                                        <td>13.6%</td>
+                                        <td><span class="badge warning">88%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>عسير</td>
+                                        <td>15,280</td>
+                                        <td>9.2%</td>
+                                        <td><span class="badge success">90%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>المدينة</td>
+                                        <td>12,420</td>
+                                        <td>7.5%</td>
+                                        <td><span class="badge warning">87%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>حائل</td>
+                                        <td>8,750</td>
+                                        <td>5.3%</td>
+                                        <td><span class="badge success">93%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>أخرى</td>
+                                        <td>16,558</td>
+                                        <td>10.0%</td>
+                                        <td><span class="badge danger">85%</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- رسم بياني الأداء المختصر -->
+                    <div class="column-half">
+                        <div class="card">
+                            <h3 class="card-title">الأداء حسب المنطقة</h3>
+                            <div class="region-performance-compact">
+                                <div class="perf-bar-mini riyadh">
+                                    <div class="perf-name-mini">الرياض</div>
+                                    <div class="perf-bar-container-mini">
+                                        <div class="perf-fill-mini" style="width: 100%"></div>
+                                    </div>
+                                    <div class="perf-rate-mini">92%</div>
+                                </div>
+                                <div class="perf-bar-mini makkah">
+                                    <div class="perf-name-mini">مكة</div>
+                                    <div class="perf-bar-container-mini">
+                                        <div class="perf-fill-mini" style="width: 68%"></div>
+                                    </div>
+                                    <div class="perf-rate-mini">89%</div>
+                                </div>
+                                <div class="perf-bar-mini qassim">
+                                    <div class="perf-name-mini">القصيم</div>
+                                    <div class="perf-bar-container-mini">
+                                        <div class="perf-fill-mini" style="width: 44%"></div>
+                                    </div>
+                                    <div class="perf-rate-mini">91%</div>
+                                </div>
+                                <div class="perf-bar-mini eastern">
+                                    <div class="perf-name-mini">الشرقية</div>
+                                    <div class="perf-bar-container-mini">
+                                        <div class="perf-fill-mini" style="width: 53%"></div>
+                                    </div>
+                                    <div class="perf-rate-mini">88%</div>
+                                </div>
+                                <div class="perf-bar-mini asir">
+                                    <div class="perf-name-mini">عسير</div>
+                                    <div class="perf-bar-container-mini">
+                                        <div class="perf-fill-mini" style="width: 36%"></div>
+                                    </div>
+                                    <div class="perf-rate-mini">90%</div>
+                                </div>
+                                <div class="perf-bar-mini madinah">
+                                    <div class="perf-name-mini">المدينة</div>
+                                    <div class="perf-bar-container-mini">
+                                        <div class="perf-fill-mini" style="width: 29%"></div>
+                                    </div>
+                                    <div class="perf-rate-mini">87%</div>
+                                </div>
+                                <div class="perf-bar-mini hail">
+                                    <div class="perf-name-mini">حائل</div>
+                                    <div class="perf-bar-container-mini">
+                                        <div class="perf-fill-mini" style="width: 21%"></div>
+                                    </div>
+                                    <div class="perf-rate-mini">93%</div>
+                                </div>
+                                <div class="perf-bar-mini others">
+                                    <div class="perf-name-mini">أخرى</div>
+                                    <div class="perf-bar-container-mini">
+                                        <div class="perf-fill-mini" style="width: 39%"></div>
+                                    </div>
+                                    <div class="perf-rate-mini">85%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. مؤشرات الأولويات الموجزة -->
+                <div class="row">
+                    <div class="card">
+                        <h3 class="card-title">🎯 الأولويات الفورية</h3>
+                        <div class="priority-alerts-compact">
+                            <div class="priority-item critical">
+                                <div class="priority-indicator">🔴</div>
+                                <div class="priority-content">
+                                    <div class="priority-title">مناطق أخرى</div>
+                                    <div class="priority-reason">معدل إغلاق 85% + 16,558 تظلم</div>
+                                </div>
+                                <div class="priority-action">⚡ إجراء فوري</div>
+                            </div>
+                            <div class="priority-item warning">
+                                <div class="priority-indicator">🟠</div>
+                                <div class="priority-content">
+                                    <div class="priority-title">المدينة + الشرقية</div>
+                                    <div class="priority-reason">معدل إغلاق منخفض + أحجام كبيرة</div>
+                                </div>
+                                <div class="priority-action">📊 متابعة</div>
+                            </div>
+                            <div class="priority-item success">
+                                <div class="priority-indicator">🟢</div>
+                                <div class="priority-content">
+                                    <div class="priority-title">حائل - نموذج ناجح</div>
+                                    <div class="priority-reason">93% إغلاق + أقل أحجام</div>
+                                </div>
+                                <div class="priority-action">⭐ قياسي</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FOOTER -->
+            <footer class="app-footer">
+                <p>© 2024 - وزارة التعليم. جميع الحقوق محفوظة | <a href="#" style="color: var(--accent); text-decoration: none;">الإعدادات</a> | <a href="#" style="color: var(--accent); text-decoration: none;">المساعدة</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="src/config.js"></script>
+    <script src="src/auth.js"></script>
+    <script src="src/script.js"></script>
+</body>
+</html>

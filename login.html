@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - وزارة التعليم</title>
+    <meta name="description" content="تسجيل الدخول إلى لوحة إدارة الأداء الوظيفي">
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-card">
+            <div class="login-brand">
+                <img class="login-logo" src="public/assets/الشعار بدون خلفية.png" alt="شعار وزارة التعليم">
+                <h1 class="login-title">إدارة الأداء الوظيفي</h1>
+                <p class="login-subtitle">تسجيل الدخول للوصول إلى لوحة التحكم</p>
+            </div>
+
+            <form class="login-form" id="login-form">
+                <label class="login-label" for="login-email">البريد الإلكتروني</label>
+                <input id="login-email" class="login-input" type="email" placeholder="aalfayez@moe.gov.sa" value="aalfayez@moe.gov.sa" required>
+
+                <label class="login-label" for="login-password">كلمة المرور</label>
+                <input id="login-password" class="login-input" type="password" placeholder="••••••••" required>
+
+                <div class="login-feedback" id="login-feedback" role="alert" aria-live="polite"></div>
+
+                <div class="login-options">
+                    <label class="remember-me">
+                        <input type="checkbox" checked>
+                        تذكرني
+                    </label>
+                    <a class="login-link" href="#">نسيت كلمة المرور؟</a>
+                </div>
+
+                <button class="login-submit" type="submit">تسجيل الدخول</button>
+                <p class="login-footer">هل تحتاج حساب؟ <a class="login-link" href="#">تواصل مع الإدارة</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="src/auth.js"></script>
+    <script src="src/script.js"></script>
+    
+    <style>
+        .login-feedback {
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+        }
+        .login-feedback.error {
+            display: block;
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            color: #e74c3c;
+        }
+        .login-feedback.success {
+            display: block;
+            background: rgba(26, 188, 156, 0.1);
+            border: 1px solid rgba(26, 188, 156, 0.3);
+            color: #1abc9c;
+        }
+    </style>
+</body>
+</html>
