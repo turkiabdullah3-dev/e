@@ -190,7 +190,8 @@
                                         <th>إجراء</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody data-bind="dashboard-tasks-tbody">
+                                    <!-- سيتم ملء البيانات تلقائياً من config.js -->
                                     <tr>
                                         <td>مراجعة التصميم النهائي</td>
                                         <td>الجوهرة الفايز</td>
@@ -416,6 +417,7 @@
 
     <!-- No need for Chart.js with SVG implementation -->
     <script src="src/config.js"></script>
+    <script src="src/data-binding.js"></script>
     <script src="src/auth.js"></script>
     <script src="src/script.js"></script>
     

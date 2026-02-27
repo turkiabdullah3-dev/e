@@ -106,7 +106,8 @@
                                     <th>إجراء</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody data-bind="projects-tbody">
+                                <!-- سيتم ملء البيانات تلقائياً من config.js -->
                                 <tr>
                                     <td>منصة التعليم الإلكتروني المتطورة</td>
                                     <td>م. أحمد السالم</td>
@@ -184,6 +185,7 @@
     </div>
 
     <script src="src/config.js"></script>
+    <script src="src/data-binding.js"></script>
     <script src="src/auth.js"></script>
     <script src="src/script.js"></script>
 </body>
