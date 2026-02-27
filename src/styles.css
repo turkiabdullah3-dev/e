@@ -1541,6 +1541,24 @@ html[data-theme="light"] .badge-blocked {
     }
 }
 
+/* Progress Container */
+.progress-container {
+    position: relative;
+    width: 100%;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text);
+    z-index: 2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
 /* Progress Bar */
 .progress-bar {
     width: 100%;

@@ -80,6 +80,13 @@ class DataBinding {
         
         // عرض شريط تنبيه المهام المتأخرة
         this.showOverdueAlert();
+        
+        // تحديث عداد المهام
+        setTimeout(() => {
+            if (typeof updateNextTaskCounter === 'function') {
+                updateNextTaskCounter();
+            }
+        }, 100);
     }
 
     bindKPICards() {
@@ -156,11 +163,12 @@ class DataBinding {
             </td>
             <td>
                 <div class="progress-container">
-                    <div class="progress-bar" style="width: ${task.progress}%"></div>
+                    <div class="progress-bar" style="--progress: ${task.progress}%;"></div>
                     <span class="progress-text">${task.progress}%</span>
                 </div>
             </td>
             <td class="task-date">${this.formatDate(task.dueDate)}</td>
+            <td><button class="action-btn">عرض</button></td>
         `;
         
         return row;
@@ -190,13 +198,15 @@ class DataBinding {
             <td>${goal.owner}</td>
             <td>
                 <div class="progress-container">
-                    <div class="progress-bar" style="width: ${goal.progress}%"></div>
+                    <div class="progress-bar" style="--progress: ${goal.progress}%;"></div>
                     <span class="progress-text">${goal.progress}%</span>
                 </div>
             </td>
             <td>
                 <span class="badge ${statusInfo.class}">${statusInfo.label}</span>
             </td>
+            <td>${this.formatDate(goal.dueDate)}</td>
+            <td><button class="action-btn">عرض</button></td>
         `;
         
         return row;
@@ -226,7 +236,7 @@ class DataBinding {
             <td>${project.owner}</td>
             <td>
                 <div class="progress-container">
-                    <div class="progress-bar" style="width: ${project.progress}%"></div>
+                    <div class="progress-bar" style="--progress: ${project.progress}%;"></div>
                     <span class="progress-text">${project.progress}%</span>
                 </div>
             </td>
@@ -234,6 +244,7 @@ class DataBinding {
                 <span class="badge ${statusInfo.class}">${statusInfo.label}</span>
             </td>
             <td class="task-date">${this.formatDate(project.dueDate)}</td>
+            <td><button class="action-btn">عرض</button></td>
         `;
         
         return row;
