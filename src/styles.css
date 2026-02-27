@@ -590,6 +590,106 @@ html[data-theme="light"] .overdue-alert-bar {
     border-color: #c0392b;
 }
 
+/* ========== إشعار منبثق للمهام المتأخرة ========== */
+.overdue-toast-notification {
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #ffffff;
+    padding: 20px 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(231, 76, 60, 0.4),
+                0 0 80px rgba(231, 76, 60, 0.3);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 400px;
+    max-width: 500px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    backdrop-filter: blur(10px);
+}
+
+.overdue-toast-notification.show {
+    top: 30px;
+    animation: shake-notification 0.5s ease-in-out;
+}
+
+@keyframes shake-notification {
+    0%, 100% { transform: translateX(-50%) rotate(0deg); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-50%) rotate(-2deg); }
+    20%, 40%, 60%, 80% { transform: translateX(-50%) rotate(2deg); }
+}
+
+.toast-icon {
+    font-size: 40px;
+    animation: bounce-icon 1s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes bounce-icon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.toast-content {
+    flex: 1;
+}
+
+.toast-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.3px;
+}
+
+.toast-message {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.95;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.toast-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.toast-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* للأجهزة الصغيرة */
+@media (max-width: 768px) {
+    .overdue-toast-notification {
+        min-width: 90%;
+        max-width: 90%;
+        left: 5%;
+        transform: none;
+    }
+    
+    .overdue-toast-notification.show {
+        transform: none;
+    }
+}
+
 /* ========== CARDS ========== */
 .card {
     background: linear-gradient(135deg, var(--card) 0%, rgba(31, 47, 69, 0.5) 100%);

@@ -324,8 +324,75 @@ class DataBinding {
             countEl.textContent = overdueTasks.length;
             alertBar.style.display = 'block';
             console.log(`⚠️ ${overdueTasks.length} مهام متأخرة`);
+            
+            // عرض إشعار منبثق
+            this.showOverdueNotification(overdueTasks.length);
         } else if (alertBar) {
             alertBar.style.display = 'none';
+        }
+    }
+
+    // عرض إشعار منبثق للمهام المتأخرة
+    showOverdueNotification(count) {
+        // تحقق من عدم عرض الإشعار مرتين
+        if (sessionStorage.getItem('overdueNotificationShown')) {
+            return;
+        }
+        
+        // إنشاء عنصر الإشعار
+        const notification = document.createElement('div');
+        notification.className = 'overdue-toast-notification';
+        notification.innerHTML = `
+            <div class="toast-icon">⚠️</div>
+            <div class="toast-content">
+                <div class="toast-title">تنبيه: مهام متأخرة!</div>
+                <div class="toast-message">لديك ${count} ${count === 1 ? 'مهمة متأخرة' : 'مهام متأخرة'} تحتاج إلى انتباه فوري</div>
+            </div>
+            <button class="toast-close" onclick="this.parentElement.remove()">×</button>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // تأثير الظهور
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 100);
+        
+        // إخفاء تلقائي بعد 5 ثواني
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 5000);
+        
+        // تشغيل صوت تنبيه (اختياري)
+        this.playNotificationSound();
+        
+        // تسجيل أن الإشعار تم عرضه
+        sessionStorage.setItem('overdueNotificationShown', 'true');
+    }
+
+    // تشغيل صوت تنبيه بسيط
+    playNotificationSound() {
+        try {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = 800;
+            oscillator.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.5);
+        } catch (e) {
+            // تجاهل الأخطاء في حال عدم دعم المتصفح
         }
     }
 
