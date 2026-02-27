@@ -492,6 +492,105 @@ html[data-theme="light"] .content::-webkit-scrollbar-thumb:hover {
     min-width: 0;
 }
 
+/* ========== شريط تنبيه المهام المتأخرة ========== */
+.overdue-alert-bar {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border: 2px solid #a93226;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3), 
+                0 0 40px rgba(231, 76, 60, 0.2);
+    animation: pulseAlert 2s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.overdue-alert-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes pulseAlert {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3), 
+                    0 0 40px rgba(231, 76, 60, 0.2);
+    }
+    50% {
+        box-shadow: 0 6px 30px rgba(231, 76, 60, 0.5), 
+                    0 0 60px rgba(231, 76, 60, 0.4);
+    }
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.overdue-alert-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.overdue-icon {
+    font-size: 32px;
+    animation: shake 0.5s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+.overdue-text {
+    flex: 1;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.overdue-text strong {
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.overdue-view-btn {
+    background: rgba(255, 255, 255, 0.95);
+    color: #c0392b;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.overdue-view-btn:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* الوضع الفاتح */
+html[data-theme="light"] .overdue-alert-bar {
+    background: linear-gradient(135deg, #e74c3c, #d63031);
+    border-color: #c0392b;
+}
+
 /* ========== CARDS ========== */
 .card {
     background: linear-gradient(135deg, var(--card) 0%, rgba(31, 47, 69, 0.5) 100%);
@@ -1298,13 +1397,49 @@ html[data-theme="light"] .badge-blocked {
     transition: all 0.2s ease;
 }
 
-.work-table tr.row-overdue {
-    border-left: 5px solid var(--warning);
-    background: var(--warning-soft);
+/* تمييز المهام المتأخرة */
+.work-table tr.row-overdue,
+.work-table tr.overdue-task-row {
+    background: linear-gradient(90deg, rgba(231, 76, 60, 0.15), rgba(231, 76, 60, 0.08)) !important;
+    border-left: 5px solid #e74c3c !important;
+    position: relative;
 }
 
-.work-table tr.row-overdue:hover {
-    background: linear-gradient(90deg, var(--warning-soft), rgba(245, 158, 11, 0.08)) !important;
+.work-table tr.row-overdue::before,
+.work-table tr.overdue-task-row::before {
+    content: '⚠️';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.work-table tr.row-overdue:hover,
+.work-table tr.overdue-task-row:hover {
+    background: linear-gradient(90deg, rgba(231, 76, 60, 0.25), rgba(231, 76, 60, 0.15)) !important;
+    box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3) !important;
+}
+
+.work-table tr.overdue-task-row td:first-child {
+    padding-right: 40px;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+    50% { opacity: 0.7; transform: translateY(-50%) scale(1.1); }
+}
+
+@keyframes highlightOverdue {
+    0%, 100% { 
+        background: linear-gradient(90deg, rgba(231, 76, 60, 0.15), rgba(231, 76, 60, 0.08));
+        box-shadow: 0 0 0 rgba(231, 76, 60, 0);
+    }
+    50% { 
+        background: linear-gradient(90deg, rgba(231, 76, 60, 0.35), rgba(231, 76, 60, 0.25));
+        box-shadow: 0 0 20px rgba(231, 76, 60, 0.6);
+    }
 }
 
 /* Progress Bar */

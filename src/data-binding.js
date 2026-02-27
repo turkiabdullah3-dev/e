@@ -77,6 +77,9 @@ class DataBinding {
         
         // ربط التحديثات الأخيرة
         this.bindUpdates();
+        
+        // عرض شريط تنبيه المهام المتأخرة
+        this.showOverdueAlert();
     }
 
     bindKPICards() {
@@ -135,6 +138,12 @@ class DataBinding {
     createTaskRow(task) {
         const row = document.createElement('tr');
         const statusInfo = this.config.statuses[task.status] || this.config.statuses.active;
+        const isOverdue = task.status === 'overdue';
+        
+        // إضافة كلاس خاص للمهام المتأخرة
+        if (isOverdue) {
+            row.classList.add('overdue-task-row');
+        }
         
         row.innerHTML = `
             <td>
@@ -302,6 +311,22 @@ class DataBinding {
             this.bindAllData();
             console.log('🔄 تم تحديث البيانات تلقائياً');
         }, 30000);
+    }
+
+    // عرض شريط تنبيه المهام المتأخرة
+    showOverdueAlert() {
+        const tasks = this.config.tasks || [];
+        const overdueTasks = tasks.filter(task => task.status === 'overdue');
+        const alertBar = document.getElementById('overdue-alert');
+        const countEl = document.getElementById('overdue-count');
+        
+        if (overdueTasks.length > 0 && alertBar) {
+            countEl.textContent = overdueTasks.length;
+            alertBar.style.display = 'block';
+            console.log(`⚠️ ${overdueTasks.length} مهام متأخرة`);
+        } else if (alertBar) {
+            alertBar.style.display = 'none';
+        }
     }
 
     // API لتحديث البيانات يدوياً

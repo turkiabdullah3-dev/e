@@ -64,6 +64,18 @@
 
             <!-- CONTENT AREA -->
             <div class="content">
+                <!-- شريط تنبيه المهام المتأخرة -->
+                <div id="overdue-alert" class="overdue-alert-bar" style="display: none;">
+                    <div class="overdue-alert-content">
+                        <div class="overdue-icon">⚠️</div>
+                        <div class="overdue-text">
+                            <strong>تنبيه: </strong>
+                            <span id="overdue-count">0</span> مهام متأخرة تحتاج إلى انتباه فوري
+                        </div>
+                        <button class="overdue-view-btn" onclick="scrollToOverdueTasks()">عرض المهام</button>
+                    </div>
+                </div>
+
                 <!-- BREADCRUMB + LAST UPDATED -->
                 <nav class="breadcrumb" style="display: flex; justify-content: space-between; align-items: center;">
                     <span class="active">لوحة التحكم</span>
@@ -422,6 +434,23 @@
     <script src="src/script.js"></script>
     
     <script>
+        // دالة التمرير إلى المهام المتأخرة
+        function scrollToOverdueTasks() {
+            const tasksTable = document.querySelector('.work-table tbody');
+            if (tasksTable) {
+                tasksTable.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // تمييز الصفوف المتأخرة بتأثير وميض
+                const overdueRows = document.querySelectorAll('.overdue-task-row');
+                overdueRows.forEach(row => {
+                    row.style.animation = 'none';
+                    setTimeout(() => {
+                        row.style.animation = 'highlightOverdue 1s ease-in-out 3';
+                    }, 10);
+                });
+            }
+        }
+        
         // Initialize when DOM is ready
         window.addEventListener('load', () => {
             console.log('Page fully loaded');
